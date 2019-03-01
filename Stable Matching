@@ -1,0 +1,27 @@
+Gale Shapley 算法
+
+偽代碼：
+StableMatching(A, n)
+	for i = 1 to n do
+		boys[m] = NULL
+		girls[m] = NULL
+	end for
+	while TRUE do
+		if there is no boy b such that boys[b] = NULL then
+			return;
+		end if 
+		select such a boy b arbitrarily
+		g = the first girl on m's ranking list to whom g have no yet proposed
+		if girls[g] == NULL then
+			girls[g] = b;
+			boys[b] = g;
+		else if g is prefer b to state[g] then
+			boys[girls[g]] = NULL;
+			boys[b] = g;
+			girls[g] = b;
+		else
+			continue; //reject the propose
+		end if
+	end while
+  
+  
